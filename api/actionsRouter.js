@@ -21,10 +21,23 @@ router.post("/", (req,res) => {
         })
 })
 
+// router.delete("/:id", (req,res) => {
+//     const { id } = req.params
+//     Actions.remove(id)
+//         .then(deleted => res.status(200).json(deleted))
+//         .catch(err => {
+//             console.log(err)
+//             res.status(500).json({error: "can't find action to delete"})
+//         })
+// })
+
 router.delete("/:id", (req,res) => {
     const { id } = req.params
     Actions.remove(id)
-        .then(deleted => res.status(200).json(deleted))
+        .then(deleted => {
+            if (deleted) res.status(200).json(deleted)
+            else res.status(400).json({error: "no action to delete with this id"})
+        })
         .catch(err => {
             console.log(err)
             res.status(500).json({error: "can't find action to delete"})
@@ -35,12 +48,26 @@ router.put("/:id", (req,res) => {
     const { body } = req
     const { id } = req.params
     Actions.update(id,body)
-        .then(updated => res.status(200).json(updated))
+        .then(updated => {
+            if (updated) res.status(200).json(updated)
+            else res.status(400).json({error: "no action to update with this id"})
+        })
         .catch(err => {
             console.log(err)
             res.status(500).json({error: "can't find action to update"})
         })
 })
+
+// router.put("/:id", (req,res) => {
+//     const { body } = req
+//     const { id } = req.params
+//     Actions.update(id,body)
+//         .then(updated => res.status(200).json(updated))
+//         .catch(err => {
+//             console.log(err)
+//             res.status(500).json({error: "can't find action to update"})
+//         })
+// })
 
 
 module.exports = router
