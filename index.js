@@ -12,3 +12,7 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
+server = require("./api/server.js");
+
+
+server.listen(2000, () => console.log("Port running on 2000"));

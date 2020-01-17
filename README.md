@@ -48,6 +48,17 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] How can we partition our application into sub-applications?
 
+ANSWERS:
+1. Routing to specific routes, adding middleware for verification.
+
+2. middleware is the part in between the client and the server, used for verification/security or manipulation of data.
+
+3. a resource is a something we make an endpoint for? ex: songs in spotify song suggester - CRUD
+
+4. status code 200
+
+5. by using server.use("/foo", someRouter)
+
 ## Minimum Viable Product
 
 - [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
